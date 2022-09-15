@@ -3377,8 +3377,8 @@ h1.page-title + .tag-cloud-list {
 }
 #page-header.not-top-img #nav {
   background: rgba(255,255,255,0);
-  -webkit-box-shadow: 0 5px 6px -5px rgba(133,133,133,0.6);
-  box-shadow: 0 5px 6px -5px rgba(133,133,133,0.6);
+  -webkit-box-shadow: 0 5px 6px -5px rgba(133,133,133,0);
+  box-shadow: 0 5px 6px -5px rgba(133,133,133,0);
 }
 #page-header.not-top-img #nav a {
   color: var(--font-color);
