@@ -1339,8 +1339,8 @@ canvas:not(#ribbon-canvas),
   --tab-botton-bg: #f0f0f0;
   --tab-botton-color: #d5c4a1;
   --tab-button-hover-bg: #dcdcdc;
-  --tab-button-active-bg: #fff;
-  --card-bg: #fff;
+  --tab-button-active-bg: #3c3836;
+  --card-bg: #3c3836;
   --sidebar-bg: #f6f8fa;
   --btn-hover-color: #fabd2f;
   --btn-color: #fff;
@@ -1348,7 +1348,7 @@ canvas:not(#ribbon-canvas),
   --text-bg-hover: rgba(69,133,136,0.7);
   --light-grey: #eee;
   --dark-grey: #cacaca;
-  --white: #fff;
+  --white: #3c3836;
   --text-highlight-color: #d5c4a1;
   --blockquote-color: #6a737d;
   --blockquote-bg: rgba(254,128,25,0.1);
@@ -3275,7 +3275,7 @@ h1.page-title + .tag-cloud-list {
 }
 #page-header #site-title {
   margin: 0;
-  color: var(--white);
+  color: var(--whites);
   font-size: 1.85em;
 }
 @media screen and (min-width: 768px) {
