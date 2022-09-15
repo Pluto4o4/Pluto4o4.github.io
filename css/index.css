@@ -3376,7 +3376,7 @@ h1.page-title + .tag-cloud-list {
   background: 0;
 }
 #page-header.not-top-img #nav {
-  background: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0);
   -webkit-box-shadow: 0 5px 6px -5px rgba(133,133,133,0.6);
   box-shadow: 0 5px 6px -5px rgba(133,133,133,0.6);
 }
@@ -3421,7 +3421,7 @@ h1.page-title + .tag-cloud-list {
   transform: translate3d(0, 100%, 0);
 }
 #page-header.nav-visible + .layout > .aside-content > .sticky_layout {
-  top: 0px;
+  top: 70px;
   -webkit-transition: top 0.5s;
   -moz-transition: top 0.5s;
   -o-transition: top 0.5s;
