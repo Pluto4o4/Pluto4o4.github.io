@@ -3448,7 +3448,7 @@ h1.page-title + .tag-cloud-list {
 }
 #post-info .post-title {
   margin-bottom: 8px;
-  color: var(--white);
+  color: var(--light-grey);
   font-weight: normal;
   font-size: 2.5em;
   line-height: 1.5;
@@ -3555,13 +3555,13 @@ h1.page-title + .tag-cloud-list {
   vertical-align: top;
 }
 #nav #toggle-menu:hover {
-  color: var(--white);
+  color: var(--light-grey);
 }
 #nav a {
   color: var(--light-grey);
 }
 #nav a:hover {
-  color: var(--white);
+  color: var(--light-grey);
 }
 #nav #site-name {
   text-shadow: 2px 2px 4px rgba(0,0,0,0.15);
