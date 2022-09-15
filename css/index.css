@@ -1327,20 +1327,20 @@ canvas:not(#ribbon-canvas),
 :root {
   --global-font-size: 14px;
   --global-bg: #fff;
-  --font-color: #4c4948;
+  --font-color: #fbf1c7;
   --hr-border: #b6ada6;
   --hr-before-color: #998c83;
   --search-bg: #f6f8fa;
-  --search-input-color: #4c4948;
-  --search-result-title: #4c4948;
+  --search-input-color: #fbf1c7;
+  --search-result-title: #fbf1c7;
   --preloader-bg: #37474f;
   --preloader-color: #fff;
   --tab-border-color: #f0f0f0;
   --tab-botton-bg: #f0f0f0;
-  --tab-botton-color: #1f2d3d;
+  --tab-botton-color: #d5c4a1;
   --tab-button-hover-bg: #dcdcdc;
-  --tab-button-active-bg: #fff;
-  --card-bg: #fff;
+  --tab-button-active-bg: #3c3836;
+  --card-bg: #3c3836;
   --sidebar-bg: #f6f8fa;
   --btn-hover-color: #fabd2f;
   --btn-color: #fff;
@@ -1348,8 +1348,8 @@ canvas:not(#ribbon-canvas),
   --text-bg-hover: rgba(69,133,136,0.7);
   --light-grey: #eee;
   --dark-grey: #cacaca;
-  --white: #fff;
-  --text-highlight-color: #1f2d3d;
+  --white: #3c3836;
+  --text-highlight-color: #d5c4a1;
   --blockquote-color: #6a737d;
   --blockquote-bg: rgba(254,128,25,0.1);
   --reward-pop: #f5f5f5;
@@ -1467,7 +1467,7 @@ table td {
   vertical-align: middle;
 }
 *::selection {
-  background: #ebdbb2;
+  background: #fe8019;
   color: #f7f7f7;
 }
 button {
@@ -4692,7 +4692,7 @@ mjx-container[display],
   line-height: normal !important;
 }
 .aplayer {
-  color: #4c4948;
+  color: #fbf1c7;
 }
 #article-container .aplayer {
   margin: 0 0 20px;
@@ -5133,13 +5133,13 @@ blockquote.pullquote.right {
 .note.modern {
   border: 1px solid transparent !important;
   background-color: #f5f5f5;
-  color: #4c4948;
+  color: #fbf1c7;
 }
 .note.flat {
   border: initial;
   border-left: 5px solid #eee;
   background-color: #f9f9f9;
-  color: #4c4948;
+  color: #fbf1c7;
 }
 .note h2,
 .note h3,
