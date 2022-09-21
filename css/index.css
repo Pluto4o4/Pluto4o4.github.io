@@ -4239,7 +4239,7 @@ h1.page-title + .tag-cloud-list {
 #article-container h6:before {
   position: absolute;
   top: calc(50% - 7px);
-  color: #f47466;
+  color: #fe8019;
   content: '\f0c1';
   line-height: 1;
   -webkit-transition: all 0.2s ease-out;
