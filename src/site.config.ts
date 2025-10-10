@@ -2,7 +2,7 @@ import type { SiteConfig } from '~/types'
 
 const config: SiteConfig = {
   // Absolute URL to the root of your published site, used for generating links and sitemaps.
-  site: 'https://pluto4o4.github.io/terminal-blog',
+  site: 'https://pluto4o4.github.io',
   // The name of your site, used in the title and for SEO.
   title: "pluto404's blog",
   // The description of your site, used for SEO and RSS feed.

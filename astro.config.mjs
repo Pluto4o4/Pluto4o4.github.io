@@ -27,7 +27,7 @@ import rehypePixelated from './src/plugins/rehype-pixelated' /* Custom plugin to
 // https://astro.build/config
 export default defineConfig({
   site: siteConfig.site,
-  base: '/terminal-blog',
+  // base: '/terminal-blog', // 已迁移到 Pluto4o4.github.io，不再需要 base 路径
   trailingSlash: siteConfig.trailingSlashes ? 'always' : 'never',
   prefetch: true,
   markdown: {
