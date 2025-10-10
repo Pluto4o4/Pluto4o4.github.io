@@ -1,8 +1,7 @@
 ---
 title: "Spring的AOP+自定义注解"
 description: "AOP  AOP定义 AOP （Aspect Orient Programming）,直译过来就是 面向切面编程,AOP 是一种编程思想，是面向对象编程（OOP）的一种补充。  AOP的使用场景  日志记录 事务管理 权限检验 性能监测   AOP核心概念  核心概念    名称 说明     Joinpoint 连接点，指可以被动态代理拦截目标类的方法   Pointcut 切入点,对Join"
-pubDate: 2023-11-26T15:10:43.000Z
-updatedDate: 2023-11-26T15:11:54.224Z
+published: 2023-11-26
 tags: ["java", "AOP", "自定义注解"]
 draft: false
 ---

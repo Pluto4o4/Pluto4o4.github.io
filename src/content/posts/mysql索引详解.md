@@ -1,8 +1,7 @@
 ---
 title: "mysql索引详解"
 description: "分类 按数据结构分类：b+ tree索引、Hash索引、Full-text索引 按物理存储分类：聚簇索引(主键索引)、二级索引(辅助索引) 按字段特性分类：主键索引、唯一索引、普通索引、前缀索引 按字段个数分类：单列索引、联合索引  按数据结构分类    索引类型 InnDB引擎 MyISAM引擎 Memory引擎     B+Tree 索引 Yes Yes Yes   HASH索引 NO NO"
-pubDate: 2023-11-10T11:06:11.000Z
-updatedDate: 2023-11-29T16:43:55.824Z
+published: 2023-11-10
 tags: ["mysql", "索引"]
 draft: false
 ---

@@ -1,8 +1,7 @@
 ---
 title: "wsl2 ubuntu子系统使用时注意事项"
 description: "环境 wsl2+ubuntu22.04  wsl2 在学习过程中经常要使用linux，之前一直在虚拟机上使用linux，但是始终感觉不方便。之后了解到winodws的wsl2，相当于虚拟机，能够使用完整的linux内核，至少在学习上使用非常丝滑。 优点：  启动快 使用方便 支持gui应用 性能还不错  缺点：  不能使用systemd命令 没有静态ip  配合winodws terminal"
-pubDate: 2022-09-20T11:23:45.000Z
-updatedDate: 2022-09-22T04:02:26.549Z
+published: 2022-09-20
 tags: ["wsl2", "ubuntu"]
 draft: false
 ---

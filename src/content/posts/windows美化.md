@@ -1,8 +1,7 @@
 ---
 title: "windows美化"
 description: "本文一些软件会修改系统文件，可能产生bug，谨慎使用   参考 Nord Theme For Windows 11 || Make Your Windows Look || by-Vin star - YouTube  资源 UltraUXThemePatcher | Homepage M. Hoefs - UltraUXThemePatcher (mhoefs.eu) 7TSP GUI 201"
-pubDate: 2022-09-22T09:22:57.000Z
-updatedDate: 2022-09-22T12:33:17.314Z
+published: 2022-09-22
 tags: ["美化", "windows"]
 draft: false
 ---

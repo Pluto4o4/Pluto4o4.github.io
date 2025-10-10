@@ -1,8 +1,7 @@
 ---
 title: "stream流的parallelStream的使用"
 description: "什么是parallelSream 多线程处理问题，除了使用使用线程池(ExecutorService)，很多人选择了parallelStream() 并行流，底层使用forkjoin实现并行处理。但是在使用并行流时需要注意一些坑，防止出现问题。  坑  线程不安全 使用parallelSream()时，如果涉及集合操作，需要注意使用线程安全的集合，例如hashMap，arraylist等。  使"
-pubDate: 2023-11-26T15:12:34.000Z
-updatedDate: 2023-11-26T15:13:08.979Z
+published: 2023-11-26
 tags: ["java", "并发流"]
 draft: false
 ---

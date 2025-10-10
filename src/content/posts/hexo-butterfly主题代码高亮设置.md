@@ -1,8 +1,7 @@
 ---
 title: "hexo-butterfly主题代码高亮设置"
 description: "参考文章 自定義代碼配色 | Butterfly Hexo博客：六、prism代码高亮 - 简书  prism代码高亮 在使用butterfly自带的代码高亮中发现有些代码不高亮，因此在网上找代码高亮方案，发现了使用prism的代码高亮，但是没有在butterfly中使用的教程，经过一段时间的摸索，终于能够使用，记录下在butterly主题中使用prism代码高亮的方法。  在根目录_conf"
-pubDate: 2022-09-22T08:34:36.000Z
-updatedDate: 2022-09-22T12:38:20.129Z
+published: 2022-09-22
 tags: ["hexo", "代码高亮"]
 draft: false
 ---

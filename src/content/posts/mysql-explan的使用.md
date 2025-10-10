@@ -1,8 +1,7 @@
 ---
 title: "mysql explan的使用"
 description: "1.作用  表的读取顺序 数据读取操作的操作类型 哪些索引可以使用 哪些索引被实际使用 表之间的引用 每张表有多少行被优化器查询   2.使用方式 explain+sql语句 结果字段如下：    id select_type table type possible_keys key_len ref rows extra      2.1 字段含义 id: 表示执行select子句或操作表的顺序"
-pubDate: 2023-11-11T00:04:48.000Z
-updatedDate: 2023-11-29T16:44:14.511Z
+published: 2023-11-11
 tags: ["mysql", "sql优化"]
 draft: false
 ---

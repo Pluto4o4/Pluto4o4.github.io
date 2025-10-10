@@ -1,8 +1,7 @@
 ---
 title: "基于Spring自动注入实现的策略模式"
 description: "实现策略 public interface ActionStrategy()&amp;#123; 	 	void do(); &amp;#125; @Service public class DineAction implements ActionStrategy&amp;#123; 	@Override 	public void do()&amp;#123; 		System.out.print"
-pubDate: 2023-10-25T12:50:31.000Z
-updatedDate: 2023-11-29T16:43:20.324Z
+published: 2023-10-25
 tags: ["Spring", "设计模式"]
 draft: false
 ---
