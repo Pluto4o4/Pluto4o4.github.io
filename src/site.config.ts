@@ -4,7 +4,7 @@ const config: SiteConfig = {
   // Absolute URL to the root of your published site, used for generating links and sitemaps.
   site: 'https://pluto4o4.github.io/terminal-blog',
   // The name of your site, used in the title and for SEO.
-  title: 'MultiTerm',
+  title: "pluto404's blog",
   // The description of your site, used for SEO and RSS feed.
   description:
     'A coder-ready Astro blog theme with 59 of your favorite color schemes to choose from',

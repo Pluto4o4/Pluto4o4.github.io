@@ -1,6 +1,9 @@
 @import 'tailwindcss';
 @import 'katex/dist/katex.css';
 
+/* 霞鹜文楷 Screen - 用于中文 */
+@import 'lxgw-wenkai-screen-web/style.css';
+
 /* https://fontsource.org/fonts/jetbrains-mono/install */
 /* jetbrains-mono-latin-wght-normal */
 @font-face {
@@ -39,8 +42,8 @@
   --color-yellow: var(--theme-yellow);
   --color-magenta: var(--theme-magenta);
   --color-cyan: var(--theme-cyan);
-  --default-font-family: var(--theme-font), monospace;
-  --default-mono-font-family: var(--theme-font), monospace;
+  --default-font-family: 'LXGW WenKai Screen', var(--theme-font), monospace;
+  --default-mono-font-family: 'LXGW WenKai Screen', var(--theme-font), monospace;
 }
 
 header {
