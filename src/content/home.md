@@ -1,6 +1,6 @@
 ---
 avatarImage:
-  src: './avatar.png'
+  src: './avatar.jpg'
   alt: 'My avatar'
 githubCalendar: 'Pluto4o4'
 ---
