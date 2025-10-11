@@ -1,0 +1,61 @@
+---
+import Layout from '~/layouts/Layout.astro'
+import { getSortedPosts } from '~/utils'
+import ArchiveCard from '~/components/ArchiveCard.astro'
+import PageHeader from '~/components/PageHeader.astro'
+import getPostsByGroupCondition from '~/utils/getPostsByGroupCondition'
+
+const posts = await getSortedPosts()
+---
+
+<Layout title="Archives" description="按时间归档的所有文章">
+  <div class="mt-2 sm:mt-0">
+    <PageHeader />
+    {
+      Object.entries(
+        getPostsByGroupCondition(posts, (post) =>
+          post.data.published.getFullYear(),
+        ),
+      )
+        .sort(([yearA], [yearB]) => Number(yearB) - Number(yearA))
+        .map(([year, yearGroup]) => (
+          <div class="mb-8">
+            <div class="mb-4">
+              <span class="text-2xl font-bold text-heading1">{year}</span>
+              <sup class="text-sm text-foreground/60 ml-1">{yearGroup.length}</sup>
+            </div>
+            {Object.entries(
+              getPostsByGroupCondition(
+                yearGroup,
+                (post) => post.data.published.getMonth() + 1,
+              ),
+            )
+              .sort(([monthA], [monthB]) => Number(monthB) - Number(monthA))
+              .map(([month, monthGroup]) => (
+                <div class="flex flex-col sm:flex-row mb-6">
+                  <div class="mt-2 min-w-36 text-base sm:my-2">
+                    <span class="font-bold text-heading2">{String(month).padStart(2, '0')}</span>
+                    <sup class="text-xs text-foreground/60 ml-1">{monthGroup.length}</sup>
+                  </div>
+                  <ul class="flex-1">
+                    {monthGroup
+                      .sort(
+                        (a, b) =>
+                          Math.floor(
+                            new Date(b.data.published).getTime() / 1000,
+                          ) -
+                          Math.floor(
+                            new Date(a.data.published).getTime() / 1000,
+                          ),
+                      )
+                      .map((post) => (
+                        <ArchiveCard post={post} />
+                      ))}
+                  </ul>
+                </div>
+              ))}
+          </div>
+        ))
+    }
+  </div>
+</Layout>

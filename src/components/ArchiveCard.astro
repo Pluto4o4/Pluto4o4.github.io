@@ -1,0 +1,28 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import { render } from 'astro:content'
+import { dateString } from '~/utils'
+
+interface Props {
+  post: CollectionEntry<'posts'>
+}
+
+const { post } = Astro.props
+
+const { remarkPluginFrontmatter } = await render(post)
+const description = remarkPluginFrontmatter.description || post.data.description
+const articleLink = `/posts/${post.id}`
+---
+
+<li class="my-6">
+  <a
+    href={articleLink}
+    class="inline-block text-lg font-medium text-accent decoration-dashed underline-offset-4 hover:underline focus-visible:no-underline focus-visible:underline-offset-0"
+  >
+    <h3 class="text-lg font-medium">{post.data.title}</h3>
+  </a>
+  <div class="text-foreground/80 text-sm mt-1">
+    <time>{dateString(post.data.published)}</time>
+  </div>
+  {description && <p class="mt-2 text-foreground/90 line-clamp-2">{description}</p>}
+</li>
