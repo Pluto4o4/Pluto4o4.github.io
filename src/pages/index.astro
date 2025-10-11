@@ -6,6 +6,7 @@ import PostPreview from '~/components/PostPreview.astro'
 import Pagination from '~/components/Pagination.astro'
 import BlockHeader from '~/components/BlockHeader.astro'
 import HomeBanner from '~/components/HomeBanner.astro'
+import ThoughtCard from '~/components/ThoughtCard.astro'
 import siteConfig from '~/site.config'
 import TagsSection from '~/components/TagsSection.astro'
 import SeriesSection from '~/components/SeriesSection.astro'
@@ -27,6 +28,17 @@ const postsHaveTags = sortedPosts.some(
 )
 
 const postsHaveSeries = sortedPosts.some((post) => post.data.series)
+
+// 获取最新的短想法
+const RECENT_THOUGHTS_COUNT = 5
+const allThoughts = await getCollection('thoughts')
+const recentThoughts = allThoughts
+  .sort(
+    (a, b) =>
+      Math.floor(new Date(b.data.published).getTime() / 1000) -
+      Math.floor(new Date(a.data.published).getTime() / 1000),
+  )
+  .slice(0, RECENT_THOUGHTS_COUNT)
 ---
 
 <Layout>
@@ -35,6 +47,17 @@ const postsHaveSeries = sortedPosts.some((post) => post.data.series)
       <HomeBanner avatarImage={homeAvatarImage} githubCalendar={homeGithubCalendar}>
         <HomeContent />
       </HomeBanner>
+    )
+  }
+  {
+    recentThoughts.length > 0 && (
+      <section>
+        <BlockHeader>Thoughts</BlockHeader>
+        {recentThoughts.map((thought) => (
+          <ThoughtCard thought={thought} />
+        ))}
+        <Pagination nextLink="/thoughts" nextText="View all thoughts" />
+      </section>
     )
   }
   {

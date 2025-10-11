@@ -1,0 +1,67 @@
+---
+import Layout from '~/layouts/Layout.astro'
+import { getCollection } from 'astro:content'
+import ThoughtTimeline from '~/components/ThoughtTimeline.astro'
+import PageHeader from '~/components/PageHeader.astro'
+import getPostsByGroupCondition from '~/utils/getPostsByGroupCondition'
+
+// 获取所有短想法并按发布时间倒序排序
+const allThoughts = await getCollection('thoughts')
+const sortedThoughts = allThoughts.sort(
+  (a, b) =>
+    Math.floor(new Date(b.data.published).getTime() / 1000) -
+    Math.floor(new Date(a.data.published).getTime() / 1000),
+)
+---
+
+<Layout title="Thoughts" description="记录生活中的短想法、摘抄和感悟">
+  <div class="mt-2 sm:mt-0">
+    <PageHeader />
+    {
+      Object.entries(
+        getPostsByGroupCondition(sortedThoughts, (thought) =>
+          thought.data.published.getFullYear(),
+        ),
+      )
+        .sort(([yearA], [yearB]) => Number(yearB) - Number(yearA))
+        .map(([year, yearGroup]) => (
+          <div class="mb-8">
+            <div class="mb-4">
+              <span class="text-2xl font-bold text-heading1">{year}</span>
+              <sup class="text-sm text-foreground/60 ml-1">{yearGroup.length}</sup>
+            </div>
+            {Object.entries(
+              getPostsByGroupCondition(
+                yearGroup,
+                (thought) => thought.data.published.getMonth() + 1,
+              ),
+            )
+              .sort(([monthA], [monthB]) => Number(monthB) - Number(monthA))
+              .map(([month, monthGroup]) => (
+                <div class="flex flex-col sm:flex-row mb-6">
+                  <div class="mt-2 min-w-36 text-base sm:my-2">
+                    <span class="font-bold text-heading2">{String(month).padStart(2, '0')}</span>
+                    <sup class="text-xs text-foreground/60 ml-1">{monthGroup.length}</sup>
+                  </div>
+                  <ul class="flex-1">
+                    {monthGroup
+                      .sort(
+                        (a, b) =>
+                          Math.floor(
+                            new Date(b.data.published).getTime() / 1000,
+                          ) -
+                          Math.floor(
+                            new Date(a.data.published).getTime() / 1000,
+                          ),
+                      )
+                      .map((thought) => (
+                        <ThoughtTimeline thought={thought} />
+                      ))}
+                  </ul>
+                </div>
+              ))}
+          </div>
+        ))
+    }
+  </div>
+</Layout>

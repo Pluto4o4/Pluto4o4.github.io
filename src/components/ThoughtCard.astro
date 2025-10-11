@@ -1,0 +1,23 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import { render } from 'astro:content'
+import { dateString } from '~/utils'
+
+interface Props {
+  thought: CollectionEntry<'thoughts'>
+}
+
+const { thought } = Astro.props
+
+// 渲染 markdown 内容
+const { Content } = await render(thought)
+---
+
+<div class="bg-foreground/5 rounded-xl px-6 py-4 my-4 relative">
+  <div class="text-foreground text-base prose-p:my-0">
+    <Content />
+  </div>
+  <div class="text-foreground/60 text-sm mt-3 text-right">
+    {dateString(thought.data.published)}
+  </div>
+</div>
