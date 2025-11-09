@@ -1,12 +1,13 @@
 ---
-title: "mysql explan的使用"
-description: "1.作用  表的读取顺序 数据读取操作的操作类型 哪些索引可以使用 哪些索引被实际使用 表之间的引用 每张表有多少行被优化器查询   2.使用方式 explain+sql语句 结果字段如下：    id select_type table type possible_keys key_len ref rows extra      2.1 字段含义 id: 表示执行select子句或操作表的顺序"
+title: "MySQL EXPLAIN 的使用"
+description: "学习 MySQL EXPLAIN 语句分析查询执行计划"
 published: 2023-11-11
 tags: ["mysql", "sql优化"]
 draft: false
 ---
 
-## [](#1作用)1.作用
+## 作用
+
 - 表的读取顺序
 - 数据读取操作的操作类型
 - 哪些索引可以使用
@@ -14,13 +15,17 @@ draft: false
 - 表之间的引用
 - 每张表有多少行被优化器查询
 
-## [](#2使用方式)2.使用方式
+## 使用方式
 
-explain+sql语句
+explain + sql 语句
 
 结果字段如下：
-idselect_typetabletypepossible_keyskey_lenrefrowsextra
-### [](#21-字段含义)2.1 字段含义
+
+| id | select_type | table | type | possible_keys | key | key_len | ref | rows | extra |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ... | ... | ... | ... | ... | ... | ... | ... | ... | ... |
+
+### 字段含义
 
 `id`: 表示执行select子句或操作表的顺序
 id的三种情况：
@@ -29,38 +34,20 @@ id的三种情况：
 - id不同—序号越高优先级越大
 - 以上两种情况同时存在—相同的部分由上至下依次执行，不同的部分优先级越大越先执行
 
-`select_type`:表示查询的类型，主要区别在于普通查询、联合查询、子查询等
-有六种结果
+`select_type`: 表示查询的类型，主要区别在于普通查询、联合查询、子查询等。有六种结果：
 
-- 
-
-SIMPLE 简单的select查询，查询中不包含子查询或者UNION
-
-- 
-
-PRIMARY 查询中若包含任何复杂的子部分，最外层查询则被标记为PRIMARY
-
-- 
-
-SUBQUERY 在SELECT或WHERE列表中包含了子查询
-
-- 
-
-DERIVED 在FROM列表中包含的子查询被标记为DERIVED（衍生），MySQL会递归执行这些子查询，把结果放在临时表中
-
-- 
-
-UNION 若第二个SELECT出现在UNION之后，则被标记为UNION：若UNION包含在FROM子句的子查询中，外层SELECT将被标记为：DERIVED
-
-- 
-
-UNION RESULT 从UNION表获取结果的SELECT
+- **SIMPLE**: 简单的 SELECT 查询，查询中不包含子查询或者 UNION
+- **PRIMARY**: 查询中若包含任何复杂的子部分，最外层查询则被标记为 PRIMARY
+- **SUBQUERY**: 在 SELECT 或 WHERE 列表中包含了子查询
+- **DERIVED**: 在 FROM 列表中包含的子查询被标记为 DERIVED（衍生），MySQL 会递归执行这些子查询，把结果放在临时表中
+- **UNION**: 若第二个 SELECT 出现在 UNION 之后，则被标记为 UNION；若 UNION 包含在 FROM 子句的子查询中，外层 SELECT 将被标记为 DERIVED
+- **UNION RESULT**: 从 UNION 表获取结果的 SELECT
 
 `table`:执行的表
 
 `type`: 表示查询使用了哪些类型
 
-```none
+```text
 system > const > eq_ref > ref > range > index > all
 ```
 

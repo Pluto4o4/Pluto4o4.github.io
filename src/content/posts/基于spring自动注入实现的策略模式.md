@@ -1,39 +1,111 @@
 ---
 title: "基于Spring自动注入实现的策略模式"
-description: "实现策略 public interface ActionStrategy()&amp;#123; 	 	void do(); &amp;#125; @Service public class DineAction implements ActionStrategy&amp;#123; 	@Override 	public void do()&amp;#123; 		System.out.print"
+description: "学习如何使用 Spring 自动注入实现策略模式"
 published: 2023-10-25
 tags: ["Spring", "设计模式"]
 draft: false
 ---
 
-## [](#实现策略)实现策略
+## 实现策略
+
 ```java
-publicinterfaceActionStrategy(){voiddo();}
+public interface ActionStrategy {
+    void do();
+}
 ```
 
 ```java
-@ServicepublicclassDineActionimplementsActionStrategy{@Overridepublicvoiddo(){System.out.println("吃饭");}}
+@Service
+public class DineAction implements ActionStrategy {
+    @Override
+    public void do() {
+        System.out.println("吃饭");
+    }
+}
 ```
 
 ```java
-@ServicepublicclassSleepActionimplementsActionStrategy{@Overridepublicvoiddo(){System.out.println("睡觉");}}
+@Service
+public class SleepAction implements ActionStrategy {
+    @Override
+    public void do() {
+        System.out.println("睡觉");
+    }
+}
 ```
 
 ```java
-@ServicepublicclassPlayGameActionimplementsActionStrategy{@Overridepublicvoiddo(){System.out.println("打游戏");}}
+@Service
+public class PlayGameAction implements ActionStrategy {
+    @Override
+    public void do() {
+        System.out.println("打游戏");
+    }
+}
 ```
 
-## [](#策略枚举类)策略枚举类
+## 策略枚举类
+
 ```java
-publicenumActionStrategyEnum{DINE_ACTION("吃饭","dineAction"),SLEEP_ACTION("睡觉","sleepAction"),PLAY_GAME_ACTION("打游戏","playGameAction");privateStringaction;privateStringbeanName;publicstaticStringgetBeanNameByName(Stringaction){if(StringUtils.isBlank(action)){returnStrUtil.EMPTY;}for(ActionStrategyEnumvalue:ActionStrategyEnum.values()){if(name.equals(value.name)){returnvalue.beanName;}}returnStrUtil.EMPTY;}}
+public enum ActionStrategyEnum {
+    DINE_ACTION("吃饭", "dineAction"),
+    SLEEP_ACTION("睡觉", "sleepAction"),
+    PLAY_GAME_ACTION("打游戏", "playGameAction");
+
+    private String action;
+    private String beanName;
+
+    ActionStrategyEnum(String action, String beanName) {
+        this.action = action;
+        this.beanName = beanName;
+    }
+
+    public static String getBeanNameByName(String action) {
+        if (StringUtils.isBlank(action)) {
+            return StrUtil.EMPTY;
+        }
+        for (ActionStrategyEnum value : ActionStrategyEnum.values()) {
+            if (action.equals(value.action)) {
+                return value.beanName;
+            }
+        }
+        return StrUtil.EMPTY;
+    }
+}
 ```
 
-## [](#选择策略类)选择策略类
+## 选择策略类
+
 ```java
-@ServicepublicclassChooseActionStrategy{//利用spring自动注入，将实现类映射为名字和实体类@ResourceprivateMap<String,ActionStrategy>actionStrategyMap;publicActionStrategygetStrategy(StringactionName){StringbeanName=ActionStrategyEnum.getBeanNameByName(actionName);returnactionStrategyMap.get(beanName);}}
+@Service
+public class ChooseActionStrategy {
+    // 利用spring自动注入，将实现类映射为名字和实体类
+    @Resource
+    private Map<String, ActionStrategy> actionStrategyMap;
+
+    public ActionStrategy getStrategy(String actionName) {
+        String beanName = ActionStrategyEnum.getBeanNameByName(actionName);
+        return actionStrategyMap.get(beanName);
+    }
+}
 ```
 
-## [](#使用)使用
+## 使用
+
 ```java
-publicclassStrategy{@ResourceprivateChooseStrategychooseStrategy;publicvoiddemo(String[]actions){String[]actions={"吃饭","睡觉","打游戏"}for(Stringaction:actions){ActionStrategyactionStrategy=chooseStrategy.getAction(acion);if(Objects.isNull(actionStrategy)){return;}actionStrtegy.do();}}}
+public class Strategy {
+    @Resource
+    private ChooseActionStrategy chooseStrategy;
+
+    public void demo() {
+        String[] actions = {"吃饭", "睡觉", "打游戏"};
+        for (String action : actions) {
+            ActionStrategy actionStrategy = chooseStrategy.getStrategy(action);
+            if (Objects.isNull(actionStrategy)) {
+                return;
+            }
+            actionStrategy.do();
+        }
+    }
+}
 ```
