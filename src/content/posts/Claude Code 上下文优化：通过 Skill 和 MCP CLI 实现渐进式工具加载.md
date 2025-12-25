@@ -1,7 +1,7 @@
 ---
 title: "Claude Code 上下文优化：通过 Skill 和 MCP CLI 实现渐进式工具加载"
 description: "解决 Claude Code 中因加载过多工具导致初始上下文占用过高的问题，介绍并实践渐进式工具使用（Progressive Tool Use）概念。"
-published: 2025-12-22
+published: 2025-12-25
 tags: ["claude-code", "context-optimization", "mcp", "efficiency"]
 draft: false
 ---
