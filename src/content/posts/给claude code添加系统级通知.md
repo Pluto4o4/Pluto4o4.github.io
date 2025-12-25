@@ -7,8 +7,6 @@ tags: ["claude-code", "efficiency", "macos", "automation"]
 draft: false
 ---
 
-# 提升 Claude Code 效率：通过 terminal-notifier 实现cc系统级通知
-
 在使用 Claude Code (cc) 执行复杂任务时，我们经常需要等待它完成思考或执行一系列命令。一直盯着终端看非常浪费时间，但如果切出窗口去干别的事，又容易错过需要用户确认（如文件修改、命令执行）的关键节点，导致任务挂起。
 
 可以利用 Claude Code 的 **Hooks** 功能，结合`terminal-notifier` 工具，实现**当 cc 需要你介入时，自动发送系统通知**，让你能安心处理其他事务。
