@@ -44,11 +44,6 @@ const config: SiteConfig = {
       name: 'Archives',
       url: '/archives',
     },
-    {
-      name: 'GitHub',
-      url: 'https://github.com/stelcodes/multiterm-astro',
-      external: true,
-    },
   ],
   // The theming configuration for the site.
   themes: {
