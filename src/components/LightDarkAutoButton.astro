@@ -43,29 +43,19 @@ let darkTheme = siteConfig.themes.include[1]
   let currentTheme = localStorage.getItem('data-theme') || 'auto'
   updateIcons(currentTheme)
   themeButton?.addEventListener('click', () => {
-    // Toggle between light, dark, and auto themes
+    // Toggle between light and dark themes only
     // Only need to update localStorage because there should be a listener in Layout.astro
     const currentTheme = localStorage.getItem('data-theme') || darkThemeId
     let newTheme
     if (currentTheme === lightThemeId) {
       newTheme = darkThemeId
-    } else if (currentTheme === darkThemeId) {
-      newTheme = 'auto'
     } else {
       newTheme = lightThemeId
     }
     if (newTheme) {
       updateIcons(newTheme)
       localStorage.setItem('data-theme', newTheme)
-      if (newTheme === 'auto') {
-        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)')
-        document.documentElement.setAttribute(
-          'data-theme',
-          prefersDarkScheme.matches ? darkThemeId || 'auto' : lightThemeId || 'auto',
-        )
-      } else {
-        document.documentElement.setAttribute('data-theme', newTheme)
-      }
+      document.documentElement.setAttribute('data-theme', newTheme)
     }
   })
 </script>
