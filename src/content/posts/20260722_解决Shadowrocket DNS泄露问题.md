@@ -1,3 +1,8 @@
+---
+title: "20260722_解决 Shadowrocket DNS 泄露问题"
+published: 2026-07-22
+---
+
 # 20260722\_解决 Shadowrocket DNS 泄露问题
 
 ## 前情提要
